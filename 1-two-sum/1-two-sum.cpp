@@ -1,21 +1,20 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        // read the question carefully 
-        // the naive approach uisng loops 
-        vector<int>v(2);
+        // in o(n) time compelxity  run time :8ms
+     map<int,int>mp;
+        vector<int>ans;
         for(int i=0;i<nums.size();i++)
         {
-            for(int j=i+1;j<nums.size();j++)
+            if(mp.find(target-nums[i])!=mp.end())
             {
-                if(nums[i]+nums[j]==target)
-                {
-                    v[0]=i;v[1]=j;return v;
-                }
-                    
+                ans.push_back(mp[target-nums[i]]);
+                ans.push_back(i);
+                break;
             }
+            mp[nums[i]]=i;
         }
-        return v;
+        return ans;
     }
     
 };
