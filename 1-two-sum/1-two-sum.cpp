@@ -1,20 +1,22 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        // in o(n) time compelxity  run time :8ms
-     map<int,int>mp;
-        vector<int>ans;
+       // int the brute force approach the time complexity is o(n^2) and space complexity is o(n)
+        // we have to do it in o(n) time complexity that is using hash table (unordered map)
+    // the logic is to take a hash table then calculate target-nums[i] if it is there in the map then return the index of the current pointer and the ans value .
+       //recall the find function in map  -it only accepts keys
+       vector<int>v(2);
+        unordered_map<int,int>m;
         for(int i=0;i<nums.size();i++)
         {
-            if(mp.find(target-nums[i])!=mp.end())
+            if(m.find(target-nums[i])!=m.end())
             {
-                ans.push_back(mp[target-nums[i]]);
-                ans.push_back(i);
-                break;
+                v[0]=m[target-nums[i]];
+                v[1]=i;return v;
             }
-            mp[nums[i]]=i;
+            m[nums[i]]=i;
         }
-        return ans;
+        return v;
     }
     
 };
