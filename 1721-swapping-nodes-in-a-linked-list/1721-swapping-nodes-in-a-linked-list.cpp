@@ -11,21 +11,25 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        vector<int>v;
-        int c=0;
-    ListNode* n=head;
-        while(n!=NULL)
+        // the standard approach of converting into vector and then swapping and then assigning the values of swapped vector will also have time complecity of o(n) but this approach is not as good 
+        // here the approach is we are having three pointers which are pointing to head ,those are current left and right ,try to recall this approach 
+        ListNode* left=head;
+          ListNode* right=head;
+          ListNode* curr=head;
+        int c=1;
+        while(curr!=NULL)
         {
-            c++;
-          v.push_back(n->val);n=n->next;
+            if(c<k)
+                left=left->next;
+            if(c>k)
+                right=right->next;
+            curr=curr->next;c++;
         }
-    swap(v[k-1],v[c-k]);
-        ListNode* m=head;
-    int i=0;
-        while(m!=NULL)
-        {
-            m->val=v[i];i++;m=m->next;
-        }
+        int temp=left->val;
+            left->val=right->val;
+        right->val=temp;
         return head;
+        // time complexity o(n);
+        // space. complecity o(1)
     }
 };
