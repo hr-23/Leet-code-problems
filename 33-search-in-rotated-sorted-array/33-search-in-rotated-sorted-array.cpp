@@ -6,11 +6,11 @@ public:
         {
             m[nums[i]]=i;
         }
-        for(auto &it:m)
-        {
-            if(it.first==target)return it.second;
-        }
+    for(auto it:m)
+    {
+        if(it.first==target)return it.second;
+    }
         return -1;
-   }
+    }
     
 };
