@@ -5,7 +5,7 @@ public:
         // we have to do it in o(n) time complexity that is using hash table (unordered map)
     // the logic is to take a hash table then calculate target-nums[i] if it is there in the map then return the index of the current pointer and the ans value .
        //recall the find function in map  -it only accepts keys
-map<int,int>m;
+unordered_map<int,int>m;
         vector<int>v(2);
         for(int i=0;i<nums.size();i++)
         {
