@@ -6,17 +6,15 @@ public:
     // the logic is to take a hash table then calculate target-nums[i] if it is there in the map then return the index of the current pointer and the ans value .
        //recall the find function in map  -it only accepts keys
 unordered_map<int,int>m;
-        vector<int>v(2);
         for(int i=0;i<nums.size();i++)
         {
             if(m.find(target-nums[i])!=m.end())
             {
-                v[0]=i;
-                v[1]=m[target-nums[i]];
+               return {m[target-nums[i]],i};
             }
             m[nums[i]]=i;
         }
-      return v;
+      return {-1,-1};
     }
     
 };
