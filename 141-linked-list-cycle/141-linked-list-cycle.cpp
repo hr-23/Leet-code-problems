@@ -13,7 +13,7 @@ public:
         // like the same we did for to find the middle of the linked list  using two pointers fast and slow ,do the same here also initialize two pointers fast and slow and if both of them meet at the same node then there is the loop ,else there will be no loop ,another method is to use unordered set/unordred map.
         ListNode* fast=head;
         ListNode* slow=head;
-        while(fast!=NULL && fast->next!=NULL)
+        while(fast && fast->next)
         {
             fast=fast->next->next;
             slow=slow->next;
