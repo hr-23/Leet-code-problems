@@ -9,7 +9,7 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        set<ListNode*>s;
+        unordered_set<ListNode*>s;
         ListNode* n=head;
         while(n!=NULL)
         {
