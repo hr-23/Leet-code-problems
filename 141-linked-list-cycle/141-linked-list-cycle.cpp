@@ -8,15 +8,16 @@
  */
 class Solution {
 public:
+       unordered_map<ListNode*,int> mp;
     bool hasCycle(ListNode *head) {
-        unordered_set<ListNode*>s;
-        ListNode* n=head;
-        while(n!=NULL)
-        {
-            if(s.find(n)!=s.end())
+        while(head!=NULL){
+            if(mp.find(head) == mp.end()){
+                mp[head]++;
+            }
+            else{
                 return true;
-            s.insert(n);
-            n=n->next;
+            }
+            head=head->next;
         }
         return false;
     }
