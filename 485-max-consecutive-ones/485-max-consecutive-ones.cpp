@@ -7,7 +7,7 @@ public:
             sum+=nums[i];
             if(nums[i]==0)
                 sum=0;
-             maxi=max(sum,maxi);
+             if(sum>maxi)maxi=sum;
         }
     return maxi;
     }
