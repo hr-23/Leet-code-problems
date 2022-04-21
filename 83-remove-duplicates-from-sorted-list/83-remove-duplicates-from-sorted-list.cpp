@@ -11,21 +11,23 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if(!head)return head;
-     ListNode* t=head;
-        ListNode *p=head->next;
+// always remember to write the condition about edge cases like when head is NULL
+        if(head==NULL)return head;
+    // initialize two pointers p and t which points to current and next of head and a pre which is the value of the p;
+        ListNode* p=head;
+        ListNode* q=head->next;
         int pre=head->val;
-        while(p)
+        while(q)
         {
-            if(pre!=p->val)
+            if(pre!=q->val)
             {
-                t->next=p;
-                pre=p->val;
-                t=t->next;
+              p->next=q;
+                pre=q->val;
+                p=p->next;
             }
-            p=p->next;
+            q=q->next;
         }
-        t->next=NULL;
+        p->next=NULL;
         return head;
     }
 };
