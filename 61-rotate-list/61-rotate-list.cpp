@@ -11,25 +11,19 @@
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-         if(!head) return head;
-        
-        int len=1; // number of nodes
-        ListNode *newH, *tail;
-        newH=tail=head;
-        
-        while(tail->next)  // get the number of nodes in the list
+        if(!head)return head;
+// first task is to make this a circular linked list so that we can just point to the particular index
+        ListNode* p=head,*q=head;
+        int c=1;
+    while(p->next)p=p->next,c++;
+      p->next=head;
+        if(k%=c)
         {
-            tail = tail->next;
-            len++;
+            for(int i=0;i<c-k;i++)
+           p=p->next;
         }
-        tail->next = head; // circle the link
-
-        if(k %= len) 
-        {
-            for(auto i=0; i<len-k; i++) tail = tail->next; // the tail node is the (len-k)-th node (1st node is head)
-        }
-        newH = tail->next; 
-        tail->next = NULL;
-        return newH;
+        q=p->next;
+        p->next=NULL;
+        return q;
      }
 };
