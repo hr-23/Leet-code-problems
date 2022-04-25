@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> intersection(vector<vector<int>>& nums) {
          vector<int>v;
-        map<int,int>m;
+        unordered_map<int,int>m;
         for(auto it:nums)
             for(auto it1:it)
             {
