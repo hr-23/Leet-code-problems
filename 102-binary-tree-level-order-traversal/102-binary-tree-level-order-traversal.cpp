@@ -12,7 +12,7 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-//first take a queue and then insert the root into queue and then insert them into queue 
+      //first take a queue and then insert the root into queue and then insert them into queue 
 // then insert the children into the queue and then pop that particular one 
         vector<vector<int>>v;
         if(root==NULL)return v;
