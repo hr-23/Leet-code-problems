@@ -18,11 +18,11 @@ public:
         s.push(root);
         while(!s.empty())
         {
-            TreeNode* n=s.top();
+            root=s.top();
             s.pop();
-            v.push_back(n->val);
-            if(n->right!=NULL)s.push(n->right);
-            if(n->left!=NULL)s.push(n->left);
+            v.push_back(root->val);
+            if(root->right!=NULL)s.push(root->right);
+            if(root->left!=NULL)s.push(root->left);
         }
         return v;
     }
