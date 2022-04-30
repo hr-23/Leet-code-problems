@@ -15,9 +15,8 @@ public:
 			headA = headA -> next;
 		}
 		while(headB != NULL){
-			if(m[headB] > 0){
-				return headB;
-			}
+			m[headB]++;
+            if(m[headB]==2)return headB;
 			headB = headB -> next;
 		}
 		return NULL;
