@@ -14,15 +14,12 @@ public:
     int dfsHeight(TreeNode* root)
     {
         if(root==NULL)return 0;
-            
-        int lH=dfsHeight(root->left);
-        if(lH==-1)return -1;
-        int rH=dfsHeight(root->right);
-        if(rH==-1)return -1;
-        if(abs(lH-rH)>1)return -1;
-        return max(lH,rH)+1;
-        
-        
+        int lh=dfsHeight(root->left);
+        if(lh==-1)return -1;
+        int rh=dfsHeight(root->right);
+        if(rh==-1)return -1;
+        if(abs(lh-rh)>1)return -1;
+        return 1+max(lh,rh);
     }
     bool isBalanced(TreeNode* root) {
         return dfsHeight(root)!=-1;
