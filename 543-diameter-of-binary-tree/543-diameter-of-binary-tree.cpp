@@ -15,7 +15,7 @@ public:
     {
         if(root==NULL)return 0;
         int lh=height(root->left,d);
-        int rh=height(root->right,d);
+         int rh=height(root->right,d);
         d=max(d,lh+rh);
         return 1+max(lh,rh);
     }
