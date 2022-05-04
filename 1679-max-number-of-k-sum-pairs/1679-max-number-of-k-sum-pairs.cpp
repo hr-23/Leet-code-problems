@@ -2,19 +2,19 @@ class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
       sort(nums.begin(),nums.end());
-        int lower=0;
+        int low=0;
         int high=nums.size()-1;
-        int cnt=0;
-        while(high>lower)
+        int c=0;
+        while(low<high)
         {
-            if(nums[lower]+nums[high]==k)
+            if(nums[high]+nums[low]==k)
             {
-                cnt++;lower++;high--;
+                c++;low++;high--;
             }
-            else if(nums[lower]+nums[high]>k)
+            else if(nums[high]+nums[low]>k)
                 high--;
-            else lower++;
+            else low++;
         }
-        return cnt;
+        return c;
     }
 };
