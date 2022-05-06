@@ -1,11 +1,13 @@
 class Solution {
 public:
     string removeDuplicates(string s) {
-        string a;
-        for (auto& c : s) 
-            if (a.size() && a.back() == c) a.pop_back();
-            else a.push_back(c);
-        return a;
+string s1;
+        for(auto &it:s)
+        {
+            if(s1.size()&& s1.back()==it)s1.pop_back();
+            else s1.push_back(it);
+        }
+        return s1;
     }
 
 };
