@@ -17,13 +17,9 @@ public:
         }
         while(headB!=NULL)
         {
-            m[headB]++;
+             if(m[headB]==1)return headB;
             headB=headB->next;
         }
-        for(auto it:m)
-        {
-            if(it.second==2)return it.first;
-        }
-        return headA;
+       return headA;
     }
 };
