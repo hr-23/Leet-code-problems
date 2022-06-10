@@ -2,14 +2,13 @@ class Solution {
 public:
     bool isvalid(char o,char c)
     {
-        if(o=='[' && c==']')return true;
-        if(o=='{' && c=='}')return true;
         if(o=='(' && c==')')return true;
+        if(o=='{' && c=='}')return true;
+         if(o=='[' && c==']')return true;
         return false;
     }
-    // think of a case where the first case is invalid char and this should not be empty
     bool isValid(string s) {
-     stack<char>st;
+      stack<char>st;
       for(int i=0;i<s.length();i++)
       {
           if(s[i]=='[' || s[i]=='{' || s[i]=='(')st.push(s[i]);
