@@ -12,12 +12,12 @@
 class Solution {
 public:
     vector<int>v;
-    void postorder(TreeNode* n)
+    void postorder(TreeNode* root)
     {
-        if(n==NULL)return;
-        postorder(n->left);
-        postorder(n->right);
-        v.push_back(n->val);
+        if(root==NULL)return;
+        postorder(root->left);
+        postorder(root->right);
+        v.emplace_back(root->val);
     }
     vector<int> postorderTraversal(TreeNode* root) {
         postorder(root);
