@@ -18,7 +18,7 @@ public:
     
     TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& rootIdx, int left, int right) {
         if (left > right) return NULL;
-        int pivot = left;  // find the root from inorder
+        int pivot = left; 
         while(inorder[pivot] != preorder[rootIdx]) pivot++;
         
         rootIdx++;
