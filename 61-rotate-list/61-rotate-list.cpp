@@ -22,6 +22,7 @@ public:
         p->next=head;
        if(k%=c)for(int i=0;i<c-k;i++)p=p->next;
         q=p->next;
-       p->next=0;return q;
+       p->next=0;
+        return q;
     }
 };
