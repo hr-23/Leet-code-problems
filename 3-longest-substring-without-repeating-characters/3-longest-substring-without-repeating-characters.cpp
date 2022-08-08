@@ -1,18 +1,33 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        // sliding window concept 
-        int i=0,j=0,n=s.length(),ans=0;
-        unordered_set<char>st;
-        while(i<n && j<n)
+       int n = s.size();
+        int l=0, r = n-1;
+        
+        unordered_set<char> visited;
+        
+        int maxStr = 0;
+
+        for(int r=0;r<n;r++)
         {
-             if(st.find(s[j])==st.end())
-             {
-                 st.insert(s[j++]);
-                     ans=max(ans,j-i);
-              }
-            else st.erase(s[i++]);
+            if(visited.find(s[r])==visited.end())
+            {
+                visited.insert(s[r]);
+                maxStr = max(maxStr,r-l+1);
+                
+            }
+            else
+            {
+                while(l!=r && s[l]!=s[r])
+                    visited.erase(s[l++]);
+                
+                visited.erase(s[l++]);
+                visited.insert(s[r]);
+                
+                maxStr = max(maxStr,r-l+1);
+            }
         }
-return ans;
+        
+        return maxStr;
     }
 };
