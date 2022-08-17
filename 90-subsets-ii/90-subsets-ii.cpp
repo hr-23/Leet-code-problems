@@ -16,6 +16,7 @@ set<vector<int>>s;
         vector<int>ds;
         int n=nums.size();
         sort(nums.begin(),nums.end());
+        // this sort plays a key role ,know what is it ?
           print(0,n,nums,ds);
       vector<vector<int>>v(s.begin(),s.end());
         return v;
