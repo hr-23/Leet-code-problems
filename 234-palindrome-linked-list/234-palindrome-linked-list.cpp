@@ -10,25 +10,27 @@
  */
 class Solution {
 public:
-   void insert_at_front(ListNode** head2,int x)
-{
-    ListNode* temp=new ListNode();
-    temp->val=x;
-    temp->next=*head2;
-    *head2=temp;
-}
+      ListNode* p;
+    void insert_at_front(int data)
+    {
+        ListNode* temp=new ListNode();
+        temp->val=data;
+        temp->next=p;
+        p=temp;
+    }
     bool isPalindrome(ListNode* head) {
-          ListNode* head2;
-        ListNode* n=head;
-        while(n)
+         ListNode* n=head;
+        while(n!=NULL)
         {
-            insert_at_front(&head2,n->val);n=n->next;
+            insert_at_front(n->val);
+            n=n->next;
         }
-        ListNode* t=head;
-        ListNode* p=head2;
-        while(t)
+        ListNode * a=p;
+        ListNode *b=head;
+        while(a && b)
         {
-            if(t->val!=p->val)return false;t=t->next;p=p->next;
+            if(a->val!=b->val)return false;
+            a=a->next;b=b->next;
         }
         return true;
     }
