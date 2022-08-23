@@ -11,7 +11,7 @@
 class Solution {
 public:
       ListNode* p;
-    void insert_at_front(int data)
+    void insert_at_front(int data,ListNode* &p)
     {
         ListNode* temp=new ListNode();
         temp->val=data;
@@ -20,9 +20,10 @@ public:
     }
     bool isPalindrome(ListNode* head) {
          ListNode* n=head;
+             ListNode* p;
         while(n!=NULL)
         {
-            insert_at_front(n->val);
+            insert_at_front(n->val,p);
             n=n->next;
         }
         ListNode * a=p;
