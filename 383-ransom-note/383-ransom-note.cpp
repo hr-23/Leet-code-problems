@@ -4,7 +4,7 @@ public:
         int count[26]={0};
         for(auto it:b)count[it-'a']++;
         for(auto it:a)
-            if(count[it-'a']-- <=0)return false;
+            if(count[it-'a']-- ==0)return false;
         return true;
     }
 };
