@@ -1,18 +1,11 @@
 class Solution {
 public:
     bool canConstruct(string a, string b) {
-        map<char,int>m1,m2;
+       unordered_map<char,int>m1,m2;
+        for(auto it:a)m1[it]++;
+        for(auto it:b)m2[it]++;
         for(int i=0;i<a.length();i++)
-            m1[a[i]]++;
-         for(int i=0;i<b.length();i++)
-         {
-             m2[b[i]]++;
-         }
-         for(int i=0;i<a.length();i++)
-         {
-             // cout<<m1[a[i]]<<" "<<m2[a[i]]<<"\n";
-             if(m1[a[i]]>m2[a[i]])return false;
-         }
+            if(m1[a[i]]>m2[a[i]])return false;
         return true;
     }
 };
