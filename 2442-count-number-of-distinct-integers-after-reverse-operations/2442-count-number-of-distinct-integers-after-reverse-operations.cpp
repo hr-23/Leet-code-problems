@@ -1,13 +1,15 @@
 class Solution {
 public:
     int countDistinctIntegers(vector<int>& nums) {
-     set<int> s;
-        for(auto n: nums){
-            s.insert(n);
-            int r = 0;
-            while(n){
-                r = r*10 + n%10;
-                n = n/10;
+    unordered_set<int>s;
+        for(auto it:nums)
+        {
+            s.insert(it);
+            int r=0;
+            while(it)
+            {
+                r=r*10+it%10;
+                it/=10;
             }
             s.insert(r);
         }
