@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        unordered_set<int>s;
+         unordered_set<int>s;
         
         while(n!=1)
         {
@@ -17,6 +17,5 @@ public:
             n=sum;
         }
         return true;
-        
     }
 };
