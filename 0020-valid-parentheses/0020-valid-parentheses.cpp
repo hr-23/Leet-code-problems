@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool ispair(char o,char c)
+     bool ispair(char o,char c)
     {
         if(o=='(' && c==')')return true;
         if(o=='{' && c=='}')return true;
