@@ -1,24 +1,22 @@
 class Solution {
 public:
-   static  int cb(int a)
+   static bool cmp(pair<int,int>&a,pair<int,int>&b)
     {
-        int cnt=0;
-        while(a)
+        if(a.second<b.second)return true;
+        if(a.second==b.second)return a.first<b.first;
+        return false;
+    }
+    vector<int> sortByBits(vector<int>& nums) {
+      vector<pair<int,int>>v;
+        for(int i=0;i<nums.size();i++)
         {
-            a=a&(a-1);
-            cnt++;
+            int c=__builtin_popcount(nums[i]);
+            v.emplace_back(nums[i],c);
         }
-        return cnt;
-    }
-  static  bool  cmp(int a,int b)
-    {
-        int p=cb(a);
-       int q=cb(b);
-       if(p==q)return a<=b;
-       else return p<q;
-    }
-    vector<int> sortByBits(vector<int>& arr) {
-        sort(arr.begin(),arr.end(),cmp);
-        return arr;
+        sort(v.begin(),v.end(),cmp);
+        vector<int>res;
+        for(auto it:v)
+            res.push_back(it.first);
+        return res;
     }
 };
