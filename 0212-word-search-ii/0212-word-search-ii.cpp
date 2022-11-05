@@ -33,10 +33,10 @@ public:
         cur = cur->children[orgChar - 'a'];
         if (cur->word != nullptr) {
             ans.push_back(*cur->word);
-            cur->word = nullptr; // Avoid duplication!
+            cur->word = nullptr; 
         }
-        board[r][c] = '#'; // mark as visited!
+        board[r][c] = '#'; 
         for (int i = 0; i < 4; ++i) dfs(board, r + DIR[i], c + DIR[i+1], cur);
-        board[r][c] = orgChar; // restore org state
+        board[r][c] = orgChar; 
     }
 };
